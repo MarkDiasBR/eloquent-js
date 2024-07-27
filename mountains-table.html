@@ -1,0 +1,57 @@
+<!doctype HTML>
+<html>
+    <body>
+        <h1>Mountains</h1>
+
+        <div id="mountains"></div>
+
+        <script>
+            const MOUNTAINS = [
+                {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+                {name: "Everest", height: 8848, place: "Nepal"},
+                {name: "Mount Fuji", height: 3776, place: "Japan"},
+                {name: "Vaalserberg", height: 323, place: "Netherlands"},
+                {name: "Denali", height: 6168, place: "United States"},
+                {name: "Popocatepetl", height: 5465, place: "Mexico"},
+                {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+            ];
+
+            // Your code here
+            let myTable = document.createElement("table");
+
+            let myHeader = document.createElement("tr");
+            let headerStrings = ["name", "height", "place"];
+            for (let string of headerStrings) {
+                let myTh = document.createElement("th");
+                myTh.appendChild(document.createTextNode(string));
+                myHeader.appendChild(myTh);
+            }
+            myTable.appendChild(myHeader);
+
+            for (let mountain of MOUNTAINS) {
+                let myRow = document.createElement("tr");
+
+                let name = document.createElement("td");
+                name.appendChild(document.createTextNode(mountain.name));
+
+                myRow.appendChild(name);
+
+                let height = document.createElement("td");
+                height.appendChild(document.createTextNode(mountain.height));
+                height.style.textAlign = "right";
+
+                myRow.appendChild(height);
+
+                let place = document.createElement("td");
+                place.appendChild(document.createTextNode(mountain.place));
+
+                myRow.appendChild(place);
+
+                myTable.appendChild(myRow);
+            }
+
+            let myDiv = document.getElementById("mountains");
+            myDiv.appendChild(myTable);
+        </script>
+    </body>
+</html>
